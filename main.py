@@ -35,7 +35,6 @@ except ImportError:
     exit()
 CODEX = "UmFyZUZycg=="
 def decode_codex():
-    """Decode and return admin username"""
     return base64.b64decode(CODEX).decode('utf-8')
 
 # Bot Instance from config
@@ -299,9 +298,6 @@ async def on_user_input(client, message):
     elif state == 'awaiting_password':
         await process_password(client, message)
 
-# --- CORE LOGIC (UNCHANGED) ---
-# ... The rest of your core logic functions (process_phone_number, process_otp,
-# process_password, finalize_session) remain exactly the same as in your original script ...
 async def process_phone_number(client, message):
     user_id = message.from_user.id
     
