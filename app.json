@@ -21,10 +21,6 @@
             "description": "telegram api id here",
             "required": true
         },
-        "OWNER_ID": {
-            "description": "Telegram id of the person who will known as owner of the bot.",
-            "required": true
-        }, 
         "API_HASH": {
             "description": "telegram api hash here",
             "required": true
