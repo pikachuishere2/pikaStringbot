@@ -9,6 +9,6 @@ BOT_TOKEN = ""
 
 # The channel username (without @) that users must join to use the bot.
 # The bot MUST be an admin in this channel to check membership.
-MUST_JOIN = "PikaBotUodates"
+MUST_JOIN = "PikaBotUpdates"
 
 # ------------------------------------------------- #
